@@ -1,1 +1,2 @@
-# PrivEsc-ReversShell-Linux
+# PrivEsc + ReversShell (Linux)
+
